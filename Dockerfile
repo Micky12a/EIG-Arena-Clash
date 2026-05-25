@@ -7,7 +7,8 @@ RUN apk add --no-cache \
     ca-certificates \
     wget
 
-RUN wget https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip \
+RUN mkdir -p /pb && \
+    wget https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip \
     && unzip pocketbase_${PB_VERSION}_linux_amd64.zip \
     && mv pocketbase /pb/pocketbase \
     && rm pocketbase_${PB_VERSION}_linux_amd64.zip
